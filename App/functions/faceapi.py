@@ -37,18 +37,8 @@ def detect(face_client,video_frame_buffer):
     video_frame_stream = BytesIO(video_frame_buffer.tobytes())
 
     try:
-        detected = face_client.face.detect_with_stream(video_frame_stream, 
-                    return_face_id=True, 
-                    return_face_landmarks=True, 
-                    return_face_attributes=True, 
-                    recognition_model='recognition_01', 
-                    return_recognition_model=False, 
-                    detection_model='detection_01', 
-                    custom_headers=None, 
-                    raw=False, 
-                    callback=None
-                    )
-
+        detected = face_client.face.detect_with_stream(video_frame_stream)
+        
         image_recognized = detected.json()
         
         image_caption = image_recognized["description"]["captions"][0]["text"].capitalize()
