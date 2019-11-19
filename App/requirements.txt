@@ -1,0 +1,6 @@
+azure
+opencv-python
+pandas
+numpy
+pillow
+pyyaml
